@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FetchDataService } from './fetch-data.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +7,5 @@ import { FetchDataService } from './fetch-data.service';
 })
 export class AppComponent {
   title = 'giff-searcher';
-  
-  constructor(private service: FetchDataService){}
-
-  submitted(query: string){
-    this.service.fetch(query);
- 
-  }
 }
 
