@@ -1,14 +1,29 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
+export interface Data {
+  type:string;
+  id:string;
+  url:string;
+}
+
+export interface ResultData<T>{
+  data:T[]
+  meta:any;
+  pagination:any
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class FetchDataService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  fetch(val:string){
-    alert(val);
-    return false;
+  fetch(query: any){
+    const url = 'http://api.giphy.com/v1/gifs/search';
+    return this.httpClient.get<ResultData<Data>>(url,{ params:{ api_key:environment.giphyApiKey, ...query}});
   }
+
 }

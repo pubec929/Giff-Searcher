@@ -4,4 +4,19 @@
     height: 100%;
     /*padding-top: 20px;*/
     /*strange bugs */
+    background-color: hsl(236, 32%, 53%);
+}
+
+.result-info-container {
+    margin: 20px;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: space-between;
+    padding: 10px;
+    /*border-radius: 20px;*/
+    border-bottom: 3px solid rgba(151, 151, 151, 0.89);
+}
+
+.data-container {
+    background-color: black;
 }

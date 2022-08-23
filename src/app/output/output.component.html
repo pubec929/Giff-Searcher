@@ -1,6 +1,9 @@
 <div class="results-container">
-    <div>
-        <!--<span *ngIf="search !== ''">You searched: {{search}}</span>-->
+    <div class="result-info-container">
+        <span *ngIf="this.data !== ''">You searched: {{query.searchTerm}}</span>
+        <!--<span *ngIf="numOfData > 0">Number of Results: {{numOfData}}</span>-->
     </div>
-    <div></div>
+    <div class="data-container">
+        
+    </div>
 </div>

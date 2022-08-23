@@ -1,6 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { FetchDataService, Data} from "../fetch-data.service";
 
+interface Query {
+  searchTerm: string,
+  limit: number,
+  offset: number,
+}
 
 @Component({
   selector: 'app-output',
@@ -8,14 +14,24 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./output.component.css']
 })
 export class OutputComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private service: FetchDataService) { }
+
+  giffsPerSite = 3;
+
+  data?: Data[];
+  query: Query = {
+    searchTerm: "",
+    limit: this.giffsPerSite,
+    offset: 0
+  };
 
   ngOnInit(): void {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
-        
-        //console.log(this.router.routerState.snapshot.root.queryParamMap.get('query'));
-      };
+        this.query.searchTerm = this.router.routerState.snapshot.root.queryParamMap.get('query') ?? "";
+        this.service.fetch(this.query).subscribe(data=>this.data = data.data);
+        console.log(this.data![0].url)
+      }
     });
   }
 
