@@ -1,4 +1,4 @@
-import { apiKeys } from 'src/environments/environment-api-keys';
+import { apiKeys } from './environment-api-keys';
 
 
 export const environment = {

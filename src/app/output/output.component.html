@@ -1,9 +1,16 @@
-<div class="results-container">
+<div *ngIf="query.q != '' && outputData != undefined" class="results-container">
     <div class="result-info-container">
-        <span *ngIf="this.data !== ''">You searched: {{query.searchTerm}}</span>
+        <!--<span *ngIf="this.data !== ''">You searched: {{query.searchTerm}}</span>-->
+        <span >You searched: {{query.q}}</span>
         <!--<span *ngIf="numOfData > 0">Number of Results: {{numOfData}}</span>-->
     </div>
-    <div class="data-container">
-        
+    <!--
+    <div *ngFor="let giff of outputData" class="data-container">
+        title: {{giff.title}}
+        <br>
+        url: {{giff.url}}        
     </div>
+ -->
+    <app-giff-card *ngFor = "let giff of outputData" [giff]="giff">
+    </app-giff-card>
 </div>
