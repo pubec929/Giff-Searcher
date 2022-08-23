@@ -37,3 +37,16 @@
     color: white;
     opacity: 0.8;
 }
+
+.msg-container {
+    margin-top: 5px;
+    color: red;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.msg-container img  {
+    width: 0.9rem;
+}

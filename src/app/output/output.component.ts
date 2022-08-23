@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-output',
@@ -6,10 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./output.component.css']
 })
 export class OutputComponent implements OnInit {
-  //@Input() search: string | undefined;
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe(val => {
+      if (val instanceof NavigationEnd) {
+        
+        //console.log(this.router.routerState.snapshot.root.queryParamMap.get('query'));
+      };
+    });
   }
 
   //renders 25 giffs on the page

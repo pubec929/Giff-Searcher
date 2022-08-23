@@ -9,6 +9,6 @@ export class FetchDataService {
 
   fetch(val:string){
     alert(val);
-    return val;
+    return false;
   }
 }
