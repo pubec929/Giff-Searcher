@@ -14,7 +14,7 @@ interface Query {
   styleUrls: ['./output.component.css']
 })
 export class OutputComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router, private service: FetchDataService) { }
+  constructor(private router: Router, private service: FetchDataService) { }
 
   giffsPerSite = 25;
 

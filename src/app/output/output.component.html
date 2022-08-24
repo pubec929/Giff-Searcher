@@ -4,15 +4,14 @@
         <span >You searched: {{query.q}}</span>
         <!--<span *ngIf="numOfData > 0">Number of Results: {{numOfData}}</span>-->
     </div>
-    <!--
-    <div *ngFor="let giff of outputData" class="data-container">
-        title: {{giff.title}}
-        <br>
-        url: {{giff.url}}        
-    </div>
- -->
-    <div class="data-container">
+    
+    <div *ngIf="outputData.length > 1" class="data-container">
         <app-giff-card *ngFor = "let giff of outputData" [giff]="giff">
         </app-giff-card>
+    </div>
+    <div *ngIf="outputData.length === 0" class="no-result-message">
+        No GIFs found for '{{query.q}}' 😞
+        <br>
+        Try searching for <a href="/home?query=cats">cats</a> instead!
     </div>
 </div>
