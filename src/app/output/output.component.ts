@@ -16,7 +16,7 @@ interface Query {
 export class OutputComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private service: FetchDataService) { }
 
-  giffsPerSite = 3;
+  giffsPerSite = 25;
 
   outputData?: Data[];
   query: Query = {
@@ -29,10 +29,7 @@ export class OutputComponent implements OnInit {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
         this.query.q = this.router.routerState.snapshot.root.queryParamMap.get('query') ?? "";
-        console.log(this.query);
         this.service.fetch(this.query).subscribe(data => this.outputData = data.data);
-        console.log("first request", this.query.q);
-        console.log(this.outputData);
       }
     });
   }

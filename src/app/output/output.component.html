@@ -11,6 +11,8 @@
         url: {{giff.url}}        
     </div>
  -->
-    <app-giff-card *ngFor = "let giff of outputData" [giff]="giff">
-    </app-giff-card>
+    <div class="data-container">
+        <app-giff-card *ngFor = "let giff of outputData" [giff]="giff">
+        </app-giff-card>
+    </div>
 </div>

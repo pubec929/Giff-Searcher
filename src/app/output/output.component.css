@@ -1,10 +1,9 @@
 /*styling of results*/
 .results-container {
-    width: 90%;
-    height: 100%;
     /*padding-top: 20px;*/
     /*strange bugs */
-    background-color: hsl(236, 32%, 53%);
+    /* background-color: hsl(236, 32%, 53%); */
+    width: 80%;
 }
 
 .result-info-container {
@@ -18,5 +17,17 @@
 }
 
 .data-container {
-    background-color: black;
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+} 
+
+app-giff-card{
+    display: flex;
+    justify-content: center;
 }
